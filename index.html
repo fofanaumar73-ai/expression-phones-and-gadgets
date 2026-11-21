@@ -347,83 +347,131 @@
     .primary-button:hover { filter: brightness(1.06); }
     .primary-button:active { transform: scale(.97); }
 
-    /* CATEGORIES AND PRODUCTS */
+    
+/* CATEGORIES AND PRODUCTS */
 
-    .section-heading {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin: 33px 0 16px;
-    }
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 33px 0 16px;
+}
 
-    .section-heading h2 {
-      color: var(--cream);
-      font-size: 17px;
-      font-weight: 750;
-      letter-spacing: -.35px;
-    }
+.section-heading h2 {
+  color: var(--cream);
+  font-size: 17px;
+  font-weight: 750;
+  letter-spacing: -.35px;
+}
 
-    .section-heading button {
-      border: 0;
-      background: none;
-      color: var(--cream-soft);
-      font-size: 11px;
-    }
+.section-heading button {
+  border: 0;
+  background: none;
+  color: var(--cream-soft);
+  font-size: 11px;
+}
 
-    .section-heading button:hover { color: #fff; }
+.section-heading button:hover {
+  color: #fff;
+}
 
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(4,minmax(0,1fr));
-      gap: 11px;
-    }
+/* REAL PRODUCT IMAGE CATEGORIES */
 
-    .category {
-      min-width: 0;
-      min-height: 94px;
-      padding: 15px 7px 13px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--line);
-      border-radius: 17px;
-      background: linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.025));
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.035);
-      text-align: center;
-      transition: transform .2s,border-color .2s,background .2s;
-    }
+.categories {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+}
 
-    .category:hover {
-      transform: translateY(-2px);
-      border-color: var(--line-strong);
-      background: rgba(255,255,255,.075);
-    }
+.category {
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  aspect-ratio: 1 / 1.12;
+  display: flex;
+  align-items: flex-end;
+  border: 1px solid rgba(242,236,223,.13);
+  border-radius: 17px;
+  background: #151513;
+  isolation: isolate;
+  transition: transform .3s ease, border-color .3s ease;
+}
 
-    .category-icon {
-      margin-bottom: 9px;
-      color: var(--cream-soft);
-      font-size: 23px;
-      line-height: 1;
-    }
+.category:hover {
+  transform: translateY(-4px);
+  border-color: rgba(242,236,223,.35);
+}
 
-    .category p {
-      color: var(--cream-soft);
-      font-size: 10px;
-      line-height: 1.4;
-    }
+.category img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
 
-    .empty-products {
-      padding: 31px 16px;
-      border: 1px dashed rgba(242,236,223,.16);
-      border-radius: 17px;
-      color: var(--muted);
-      background: rgba(255,255,255,.018);
-      font-size: 12px;
-      line-height: 1.8;
-      text-align: center;
-    }
+.category:hover img {
+  transform: scale(1.07);
+}
+
+.category::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.92) 0%,
+    rgba(0,0,0,.35) 38%,
+    transparent 75%
+  );
+}
+
+.category p {
+  width: 100%;
+  padding: 15px 7px;
+  color: #F2ECDF;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: .2px;
+}
+
+/* EMPTY PRODUCT STATE */
+
+.empty-products {
+  padding: 31px 16px;
+  border: 1px dashed rgba(242,236,223,.16);
+  border-radius: 17px;
+  color: var(--muted);
+  background: rgba(255,255,255,.018);
+  font-size: 12px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* MOBILE CATEGORY GRID */
+
+@media (max-width: 520px) {
+  .categories {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+  }
+
+  .category {
+    aspect-ratio: 1.35 / 1;
+    border-radius: 16px;
+  }
+
+  .category p {
+    font-size: 12px;
+    padding: 13px 6px;
+  }
+}
+
 
     /* HORIZONTAL LIQUID GLASS NAVIGATION */
 
