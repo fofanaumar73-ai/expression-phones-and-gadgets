@@ -1,0 +1,643 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10091C">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Expression Phone">
+
+  <title>Expression Phone | Experience More</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #10091C;
+      --surface: #191125;
+      --purple: #702BE6;
+      --accent: #B77AFF;
+      --silver: #C7C9D1;
+      --text: #F8F5FC;
+      --muted: #A69BB5;
+      --glass: rgba(255,255,255,.075);
+      --border: rgba(255,255,255,.11);
+      --radius: 22px;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      background:
+        radial-gradient(ellipse at 85% 5%, rgba(112,43,230,.20), transparent 35%),
+        radial-gradient(ellipse at 0% 65%, rgba(183,122,255,.09), transparent 40%),
+        var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 1440px;
+      min-height: 100dvh;
+      margin: auto;
+      padding-bottom: calc(110px + var(--safe-bottom));
+    }
+
+    /* SPLASH SCREEN */
+
+    .splash {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: grid;
+      place-items: center;
+      background: var(--bg);
+      transition: opacity .65s ease, visibility .65s;
+    }
+
+    .splash.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .splash-content {
+      text-align: center;
+      animation: logoReveal 1s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .logo-mark {
+      width: 92px;
+      height: 92px;
+      margin: auto auto 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 28px;
+      background: linear-gradient(140deg,#B77AFF,#702BE6 65%,#36116C);
+      box-shadow: 0 15px 55px rgba(112,43,230,.35);
+      font: 800 35px 'Sora', sans-serif;
+      color: white;
+    }
+
+    .brand-name {
+      font: 800 25px 'Sora', sans-serif;
+      letter-spacing: 2px;
+    }
+
+    .brand-name span { color: var(--accent); }
+
+    .slogan {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 1px;
+      margin-top: 12px;
+    }
+
+    @keyframes logoReveal {
+      from { opacity: 0; transform: translateY(18px) scale(.94); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* HEADER */
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: calc(17px + var(--safe-top)) 20px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(16,9,28,.72);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-icon {
+      width: 39px;
+      height: 39px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: linear-gradient(135deg,#A970F5,#702BE6);
+      font: 800 16px 'Sora', sans-serif;
+    }
+
+    .brand-title {
+      font: 700 14px 'Sora', sans-serif;
+      letter-spacing: .7px;
+    }
+
+    .brand-sub {
+      color: var(--accent);
+      font-size: 9px;
+      letter-spacing: 2px;
+      margin-top: 3px;
+    }
+
+    .icon-button {
+      width: 43px;
+      height: 43px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: var(--glass);
+      display: grid;
+      place-items: center;
+      font-size: 19px;
+    }
+
+    /* MAIN CONTENT */
+
+    main { padding: 25px 20px; }
+
+    .welcome {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      margin-bottom: 12px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Sora', sans-serif;
+    }
+
+    .hero-title {
+      font-size: clamp(30px, 8vw, 52px);
+      line-height: 1.17;
+      letter-spacing: -1.8px;
+      max-width: 550px;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-description {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+      margin-top: 13px;
+      max-width: 400px;
+    }
+
+    /* SEARCH */
+
+    .search {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 27px;
+      padding: 15px 17px;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      background: var(--glass);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* HERO CARD */
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      margin-top: 27px;
+      min-height: 210px;
+      padding: 25px;
+      border: 1px solid rgba(183,122,255,.25);
+      border-radius: 25px;
+      background:
+        radial-gradient(circle at 85% 50%,rgba(183,122,255,.4),transparent 35%),
+        linear-gradient(125deg,#291444,#171025 75%);
+    }
+
+    .hero-card::after {
+      content: "EP";
+      position: absolute;
+      right: -12px;
+      bottom: -43px;
+      font: 800 130px 'Sora',sans-serif;
+      color: rgba(255,255,255,.045);
+    }
+
+    .hero-card small {
+      color: #D6B6FF;
+      font-size: 10px;
+      letter-spacing: 1.6px;
+    }
+
+    .hero-card h2 {
+      font-size: 25px;
+      margin: 15px 0 8px;
+      max-width: 230px;
+    }
+
+    .hero-card p {
+      font-size: 11px;
+      color: #C7B6D9;
+      margin-bottom: 19px;
+    }
+
+    .primary-button {
+      position: relative;
+      z-index: 2;
+      border: 0;
+      padding: 12px 19px;
+      border-radius: 13px;
+      background: linear-gradient(110deg,#9A55F5,#702BE6);
+      font-size: 11px;
+      font-weight: 700;
+      box-shadow: 0 6px 22px rgba(112,43,230,.3);
+      transition: transform .2s ease;
+    }
+
+    .primary-button:active { transform: scale(.96); }
+
+    /* SECTIONS */
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 32px 0 17px;
+    }
+
+    .section-heading h2 {
+      font-size: 17px;
+    }
+
+    .section-heading button {
+      border: 0;
+      background: none;
+      color: var(--accent);
+      font-size: 11px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4,minmax(0,1fr));
+      gap: 10px;
+    }
+
+    .category {
+      min-width: 0;
+      padding: 15px 5px;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      background: var(--glass);
+      text-align: center;
+    }
+
+    .category-icon {
+      font-size: 24px;
+      margin-bottom: 9px;
+    }
+
+    .category p {
+      color: #D7CDDF;
+      font-size: 10px;
+      line-height: 1.4;
+    }
+
+    .empty-products {
+      padding: 30px 15px;
+      border: 1px dashed var(--border);
+      border-radius: 18px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    /* BOTTOM NAVIGATION */
+
+    .bottom-nav {
+      position: fixed;
+      z-index: 100;
+      left: 50%;
+      bottom: calc(13px + var(--safe-bottom));
+      transform: translateX(-50%);
+      width: min(calc(100% - 28px), 490px);
+      padding: 10px 8px;
+      display: grid;
+      grid-template-columns: repeat(5,1fr);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 25px;
+      background: rgba(35,24,49,.78);
+      box-shadow: 0 12px 45px rgba(0,0,0,.4);
+      backdrop-filter: blur(30px) saturate(180%);
+      -webkit-backdrop-filter: blur(30px) saturate(180%);
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      min-height: 49px;
+      border: 0;
+      border-radius: 17px;
+      background: transparent;
+      color: #A99BB9;
+      font-size: 10px;
+      transition: .25s ease;
+    }
+
+    .nav-item .nav-icon { font-size: 20px; }
+
+    .nav-item.active {
+      color: #D7B6FF;
+      background: rgba(155,88,240,.19);
+    }
+
+    /* SCREENS */
+
+    .screen { display: none; animation: screenIn .3s ease; }
+    .screen.active { display: block; }
+
+    @keyframes screenIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .screen-message {
+      min-height: 45vh;
+      display: grid;
+      place-content: center;
+      text-align: center;
+      gap: 12px;
+    }
+
+    .screen-message .big-icon { font-size: 42px; }
+    .screen-message p { color: var(--muted); font-size: 13px; }
+
+    /* RESPONSIVE */
+
+    @media (min-width: 700px) {
+      main { padding: 40px 45px; }
+      .topbar { padding-left: 45px; padding-right: 45px; }
+      .hero-card { min-height: 260px; padding: 35px; }
+      .hero-card h2 { font-size: 34px; }
+      .categories { grid-template-columns: repeat(4,120px); }
+    }
+
+    @media (min-width: 1050px) {
+      .app { padding-bottom: 35px; }
+      main { max-width: 1100px; margin: auto; }
+      .bottom-nav {
+        position: sticky;
+        bottom: 15px;
+        margin: 0 auto 15px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @supports not (backdrop-filter: blur(1px)) {
+      .topbar, .bottom-nav {
+        background: #21172F;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SPLASH -->
+
+  <div class="splash" id="splash">
+    <div class="splash-content">
+      <div class="logo-mark">EP</div>
+      <div class="brand-name">EXPRESSION <span>PHONE</span></div>
+      <p class="slogan">EXPERIENCE MORE, CONNECT BETTER.</p>
+    </div>
+  </div>
+
+  <div class="app">
+
+    <!-- HEADER -->
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon">EP</div>
+        <div>
+          <div class="brand-title">EXPRESSION</div>
+          <div class="brand-sub">PHONE</div>
+        </div>
+      </div>
+
+      <button class="icon-button" aria-label="Notifications">♧</button>
+    </header>
+
+    <main>
+
+      <!-- HOME -->
+
+      <section class="screen active" id="home">
+        <p class="welcome">WELCOME TO EXPRESSION PHONE</p>
+
+        <h1 class="hero-title">
+          Experience More.<br>
+          <span>Connect Better.</span>
+        </h1>
+
+        <p class="hero-description">
+          Discover amazing devices and accessories
+          designed to keep you connected.
+        </p>
+
+        <div class="search">
+          <span>⌕</span>
+          <span>Search phones, brands and accessories...</span>
+        </div>
+
+        <div class="hero-card">
+          <small>YOUR NEXT DEVICE AWAITS</small>
+          <h2>Discover what's new.</h2>
+          <p>Find technology that moves with you.</p>
+          <button class="primary-button" onclick="navigate('explore')">
+            EXPLORE PRODUCTS →
+          </button>
+        </div>
+
+        <div class="section-heading">
+          <h2>Shop by category</h2>
+          <button onclick="navigate('explore')">See all</button>
+        </div>
+
+        <div class="categories">
+          <div class="category">
+            <div class="category-icon">📱</div>
+            <p>Smartphones</p>
+          </div>
+          <div class="category">
+            <div class="category-icon">🎧</div>
+            <p>Accessories</p>
+          </div>
+          <div class="category">
+            <div class="category-icon">⌚</div>
+            <p>Smartwatches</p>
+          </div>
+          <div class="category">
+            <div class="category-icon">💻</div>
+            <p>Tablets</p>
+          </div>
+        </div>
+
+        <div class="section-heading">
+          <h2>Featured products</h2>
+          <button onclick="navigate('explore')">View all</button>
+        </div>
+
+        <div class="empty-products">
+          Products will appear here once our catalogue is connected.
+          <br>Coming soon.
+        </div>
+      </section>
+
+      <!-- EXPLORE -->
+
+      <section class="screen" id="explore">
+        <p class="welcome">DISCOVER SOMETHING NEW</p>
+        <h1 class="hero-title">Explore <span>devices.</span></h1>
+        <p class="hero-description">Find your next favourite technology.</p>
+        <div class="empty-products">
+          Our product catalogue will be connected in Phase 2.
+        </div>
+      </section>
+
+      <!-- WISHLIST -->
+
+      <section class="screen" id="wishlist">
+        <div class="screen-message">
+          <div class="big-icon">♡</div>
+          <h2>Your wishlist</h2>
+          <p>Your favourite products will live here.</p>
+        </div>
+      </section>
+
+      <!-- CART -->
+
+      <section class="screen" id="cart">
+        <div class="screen-message">
+          <div class="big-icon">🛍</div>
+          <h2>Your shopping bag</h2>
+          <p>Let's find something you'll love.</p>
+          <button class="primary-button" onclick="navigate('explore')">
+            START EXPLORING
+          </button>
+        </div>
+      </section>
+
+      <!-- ACCOUNT -->
+
+      <section class="screen" id="account">
+        <div class="screen-message">
+          <div class="big-icon">◉</div>
+          <h2>Your account</h2>
+          <p>Your Expression Phone account will appear here.</p>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FLOATING NAVIGATION -->
+
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <button class="nav-item active" data-screen="home" onclick="navigate('home')">
+        <span class="nav-icon">⌂</span>
+        <span>Home</span>
+      </button>
+
+      <button class="nav-item" data-screen="explore" onclick="navigate('explore')">
+        <span class="nav-icon">⌕</span>
+        <span>Explore</span>
+      </button>
+
+      <button class="nav-item" data-screen="wishlist" onclick="navigate('wishlist')">
+        <span class="nav-icon">♡</span>
+        <span>Wishlist</span>
+      </button>
+
+      <button class="nav-item" data-screen="cart" onclick="navigate('cart')">
+        <span class="nav-icon">♧</span>
+        <span>Cart</span>
+      </button>
+
+      <button class="nav-item" data-screen="account" onclick="navigate('account')">
+        <span class="nav-icon">◉</span>
+        <span>Account</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <script>
+    // APP NAVIGATION
+
+    function navigate(screen) {
+      document.querySelectorAll('.screen').forEach(element => {
+        element.classList.remove('active');
+      });
+
+      document.querySelectorAll('.nav-item').forEach(element => {
+        element.classList.toggle(
+          'active',
+          element.dataset.screen === screen
+        );
+      });
+
+      const target = document.getElementById(screen);
+
+      if (target) {
+        target.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // SPLASH SCREEN
+
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('splash').classList.add('hide');
+      }, 1300);
+    });
+  </script>
+
+</body>
+</html>
