@@ -1187,8 +1187,14 @@ function createProductCard(product) {
 // DISPLAY PRODUCTS
 
 function renderProducts() {
-  const featuredContainer = document.getElementById("featuredProducts");
-  const allContainer = document.getElementById("allProducts");
+  const featuredContainer =
+    document.getElementById("featuredProducts");
+
+  const landedContainer =
+    document.getElementById("justLandedProducts");
+
+  const allContainer =
+    document.getElementById("allProducts");
 
   if (featuredContainer) {
     featuredContainer.innerHTML = products
@@ -1197,10 +1203,22 @@ function renderProducts() {
       .join("");
   }
 
+  if (landedContainer) {
+    const landedProducts = products.filter(
+      product => product.justLanded === true
+    );
+
+    landedContainer.innerHTML = landedProducts.length
+      ? landedProducts.map(createProductCard).join("")
+      : '<div class="catalogue-empty">New arrivals will appear here soon.</div>';
+  }
+
   if (allContainer) {
     const filteredProducts = activeFilter === "All"
       ? products
-      : products.filter(product => product.category === activeFilter);
+      : products.filter(
+          product => product.category === activeFilter
+        );
 
     allContainer.innerHTML = filteredProducts.length
       ? filteredProducts.map(createProductCard).join("")
