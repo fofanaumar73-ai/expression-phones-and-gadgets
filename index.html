@@ -4,86 +4,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#10091C">
+  <meta name="theme-color" content="#080807">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Expression Phone">
-
+  <meta name="description" content="Expression Phone — Experience More, Connect Better. Discover phones and accessories in Ibadan, Nigeria.">
   <title>Expression Phone | Experience More</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-   
-:root {
-  color-scheme: dark;
-
-  --bg: #050505;
-  --surface: #101010;
-  --purple: #777777;
-  --accent: #D1D1D1;
-  --silver: #C5C5C5;
-
-  --text: #FFFFFF;
-  --muted: #A0A0A0;
-
-  --glass: rgba(255,255,255,0.055);
-  --border: rgba(255,255,255,0.12);
-
-  --radius: 20px;
-
-  --safe-top: env(safe-area-inset-top, 0px);
-  --safe-bottom: env(safe-area-inset-bottom, 0px);
-}
-
-body {
-  background:
-    radial-gradient(
-      ellipse at 50% -20%,
-      rgba(255,255,255,0.055),
-      transparent 55%
-    ),
-    #050505;
-  color: var(--text);
-}
-
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
+    :root {
+      color-scheme: dark;
+      --bg: #080807;
+      --bg-soft: #0d0d0b;
+      --surface: #121210;
+      --surface-raised: #191916;
+      --cream: #f2ecdf;
+      --cream-soft: #d8d0c2;
+      --muted: #a49d91;
+      --muted-dark: #777268;
+      --silver: #c8c3b9;
+      --line: rgba(242,236,223,.12);
+      --line-strong: rgba(242,236,223,.19);
+      --glass: rgba(23,23,21,.66);
+      --glass-strong: rgba(17,17,15,.82);
+      --shadow: 0 18px 55px rgba(0,0,0,.42);
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html { min-height: 100%; background: var(--bg); scroll-behavior: smooth; }
 
     body {
       min-height: 100vh;
       min-height: 100dvh;
-      background:
-        radial-gradient(ellipse at 85% 5%, rgba(112,43,230,.20), transparent 35%),
-        radial-gradient(ellipse at 0% 65%, rgba(183,122,255,.09), transparent 40%),
-        var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
       overflow-x: hidden;
+      color: var(--cream);
+      font-family: "DM Sans", sans-serif;
+      background:
+        radial-gradient(ellipse at 50% -24%, rgba(210,198,176,.075), transparent 48%),
+        radial-gradient(ellipse at 0% 52%, rgba(140,132,117,.035), transparent 38%),
+        linear-gradient(180deg, #090908 0%, #070706 58%, #090908 100%);
     }
 
-    button {
-      font: inherit;
-      color: inherit;
-      cursor: pointer;
-    }
+    button { color: inherit; font: inherit; cursor: pointer; }
+    button:focus-visible { outline: 2px solid var(--cream-soft); outline-offset: 3px; }
 
     .app {
       width: 100%;
-      max-width: 1440px;
+      max-width: 1500px;
       min-height: 100dvh;
-      margin: auto;
-      padding-bottom: calc(110px + var(--safe-bottom));
+      margin: 0 auto;
+      padding-bottom: calc(112px + var(--safe-bottom));
     }
 
-    /* SPLASH SCREEN */
+    /* CINEMATIC SPLASH SCREEN */
 
     .splash {
       position: fixed;
@@ -91,153 +70,180 @@ body {
       z-index: 1000;
       display: grid;
       place-items: center;
-      background: var(--bg);
-      transition: opacity .65s ease, visibility .65s;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(196,185,164,.09), transparent 30%),
+        #080807;
+      transition: opacity .65s ease, visibility .65s ease;
     }
 
     .splash.hide {
       opacity: 0;
       visibility: hidden;
+      pointer-events: none;
     }
 
     .splash-content {
       text-align: center;
-      animation: logoReveal 1s cubic-bezier(.2,.8,.2,1);
+      animation: reveal .9s cubic-bezier(.2,.8,.2,1) both;
     }
 
-    .logo-mark {
-      width: 92px;
-      height: 92px;
-      margin: auto auto 22px;
+    .splash-mark {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 20px;
       display: grid;
       place-items: center;
-      border-radius: 28px;
-      background: linear-gradient(140deg,#B77AFF,#702BE6 65%,#36116C);
-      box-shadow: 0 15px 55px rgba(112,43,230,.35);
-      font: 800 35px 'Sora', sans-serif;
-      color: white;
+      border: 1px solid rgba(242,236,223,.25);
+      border-radius: 23px;
+      color: var(--cream);
+      background: linear-gradient(145deg, #292822, #11110f 72%);
+      box-shadow: 0 18px 55px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.13);
+      font: 800 25px "Manrope", sans-serif;
+      letter-spacing: -1.5px;
     }
 
-    .brand-name {
-      font: 800 25px 'Sora', sans-serif;
+    .splash-name {
+      font: 800 19px "Manrope", sans-serif;
+      letter-spacing: 2px;
+      color: var(--cream);
+    }
+
+    .splash-name span { color: var(--cream-soft); }
+
+    .splash-slogan {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 9px;
       letter-spacing: 2px;
     }
 
-    .brand-name span { color: var(--accent); }
-
-    .slogan {
-      color: var(--muted);
-      font-size: 11px;
-      letter-spacing: 1px;
-      margin-top: 12px;
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(14px) scale(.97); }
+      to { opacity: 1; transform: none; }
     }
 
-    @keyframes logoReveal {
-      from { opacity: 0; transform: translateY(18px) scale(.94); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+    /* COMPACT LIQUID GLASS HEADER */
+
+    .topbar {
+      position: sticky;
+      top: 10px;
+      z-index: 100;
+      min-height: 66px;
+      margin: 10px 14px 0;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border: 1px solid var(--line-strong);
+      border-radius: 19px;
+      background: rgba(20,20,18,.64);
+      -webkit-backdrop-filter: blur(30px) saturate(135%);
+      backdrop-filter: blur(30px) saturate(135%);
+      box-shadow: 0 8px 30px rgba(0,0,0,.27), inset 0 1px 0 rgba(255,255,255,.075);
     }
-
-    /* HEADER */
-
-    
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-
-  margin: 10px 14px 0;
-  padding: calc(15px + var(--safe-top)) 22px 15px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  background: rgba(15,15,15,0.58);
-
-  border: 1px solid rgba(255,255,255,0.13);
-  border-radius: 18px;
-
-  backdrop-filter: blur(35px) saturate(150%);
-  -webkit-backdrop-filter: blur(35px) saturate(150%);
-
-  box-shadow:
-    0 8px 35px rgba(0,0,0,0.25),
-    inset 0 1px 0 rgba(255,255,255,0.07);
-}
-
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 11px;
+      min-width: 0;
     }
 
     .brand-icon {
       width: 39px;
       height: 39px;
+      flex: 0 0 39px;
       display: grid;
       place-items: center;
+      border: 1px solid rgba(242,236,223,.22);
       border-radius: 13px;
-      background: linear-gradient(135deg,#A970F5,#702BE6);
-      font: 800 16px 'Sora', sans-serif;
+      color: var(--cream);
+      background: linear-gradient(145deg,#34332d,#171715);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
+      font: 800 14px "Manrope", sans-serif;
+      letter-spacing: -.8px;
     }
 
     .brand-title {
-      font: 700 14px 'Sora', sans-serif;
-      letter-spacing: .7px;
+      color: var(--cream);
+      font: 800 13px "Manrope", sans-serif;
+      letter-spacing: .85px;
     }
 
     .brand-sub {
-      color: var(--accent);
-      font-size: 9px;
-      letter-spacing: 2px;
-      margin-top: 3px;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 8px;
+      letter-spacing: 2.5px;
     }
 
     .icon-button {
-      width: 43px;
-      height: 43px;
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      background: var(--glass);
+      width: 39px;
+      height: 39px;
+      flex: 0 0 39px;
       display: grid;
       place-items: center;
-      font-size: 19px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: rgba(255,255,255,.045);
+      color: var(--cream-soft);
+      font-size: 17px;
+      transition: background .2s, border-color .2s;
+    }
+
+    .icon-button:hover {
+      background: rgba(255,255,255,.09);
+      border-color: var(--line-strong);
     }
 
     /* MAIN CONTENT */
 
-    main { padding: 25px 20px; }
+    main {
+      width: min(100% - 40px, 1080px);
+      margin: 0 auto;
+      padding: 42px 0 30px;
+    }
+
+    .screen {
+      display: none;
+      animation: screenIn .28s ease both;
+    }
+
+    .screen.active { display: block; }
+
+    @keyframes screenIn {
+      from { opacity: 0; transform: translateY(7px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
     .welcome {
-      color: var(--accent);
-      font-size: 11px;
+      margin-bottom: 13px;
+      color: var(--cream-soft);
+      font-size: 10px;
       font-weight: 700;
-      letter-spacing: 1.8px;
-      margin-bottom: 12px;
+      letter-spacing: 2px;
     }
 
-    h1, h2, h3 {
-      font-family: 'Sora', sans-serif;
-    }
+    h1, h2, h3 { font-family: "Manrope", sans-serif; }
 
     .hero-title {
-      font-size: clamp(30px, 8vw, 52px);
-      line-height: 1.17;
-      letter-spacing: -1.8px;
-      max-width: 550px;
+      max-width: 720px;
+      color: var(--cream);
+      font-size: clamp(34px, 6vw, 61px);
+      font-weight: 800;
+      line-height: 1.09;
+      letter-spacing: -2.8px;
     }
 
-    .hero-title span {
-      color: var(--accent);
-    }
+    .hero-title span { color: #c9c1b3; }
 
     .hero-description {
+      max-width: 440px;
+      margin-top: 16px;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 14px;
       line-height: 1.8;
-      margin-top: 13px;
-      max-width: 400px;
     }
 
     /* SEARCH */
@@ -246,223 +252,362 @@ body {
       display: flex;
       align-items: center;
       gap: 12px;
+      width: 100%;
       margin-top: 27px;
       padding: 15px 17px;
-      border: 1px solid var(--border);
-      border-radius: 17px;
-      background: var(--glass);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.045);
       color: var(--muted);
       font-size: 13px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.035);
     }
 
-    /* HERO CARD */
+    .search-icon {
+      color: var(--cream-soft);
+      font-size: 17px;
+    }
+
+    /* CINEMATIC HERO CARD */
 
     .hero-card {
       position: relative;
+      isolation: isolate;
       overflow: hidden;
-      margin-top: 27px;
-      min-height: 210px;
-      padding: 25px;
-      border: 1px solid rgba(183,122,255,.25);
-      border-radius: 25px;
+      min-height: 220px;
+      margin-top: 25px;
+      padding: 28px 30px;
+      border: 1px solid rgba(230,222,207,.17);
+      border-radius: 23px;
       background:
-        radial-gradient(circle at 85% 50%,rgba(183,122,255,.4),transparent 35%),
-        linear-gradient(125deg,#291444,#171025 75%);
+        radial-gradient(ellipse at 82% 40%, rgba(211,199,176,.14), transparent 33%),
+        radial-gradient(ellipse at 100% 100%, rgba(255,255,255,.055), transparent 43%),
+        linear-gradient(112deg, #1a1a17 0%, #11110f 52%, #1b1a16 100%);
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.07);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: linear-gradient(115deg, transparent 28%, rgba(255,255,255,.035) 48%, transparent 68%);
+      pointer-events: none;
     }
 
     .hero-card::after {
       content: "EP";
       position: absolute;
-      right: -12px;
-      bottom: -43px;
-      font: 800 130px 'Sora',sans-serif;
-      color: rgba(255,255,255,.045);
+      z-index: -1;
+      right: 20px;
+      bottom: -42px;
+      color: rgba(242,236,223,.045);
+      font: 800 clamp(100px,17vw,170px)/1 "Manrope",sans-serif;
+      letter-spacing: -12px;
+      pointer-events: none;
     }
 
     .hero-card small {
-      color: #D6B6FF;
-      font-size: 10px;
-      letter-spacing: 1.6px;
+      color: #c9c1b3;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
     }
 
     .hero-card h2 {
-      font-size: 25px;
-      margin: 15px 0 8px;
-      max-width: 230px;
+      max-width: 320px;
+      margin: 16px 0 8px;
+      color: var(--cream);
+      font-size: clamp(23px,4vw,32px);
+      letter-spacing: -.8px;
     }
 
     .hero-card p {
-      font-size: 11px;
-      color: #C7B6D9;
-      margin-bottom: 19px;
+      margin-bottom: 20px;
+      color: #b9b2a6;
+      font-size: 12px;
     }
 
     .primary-button {
       position: relative;
-      z-index: 2;
-      border: 0;
-      padding: 12px 19px;
-      border-radius: 13px;
-      background: linear-gradient(110deg,#9A55F5,#702BE6);
-      font-size: 11px;
-      font-weight: 700;
-      box-shadow: 0 6px 22px rgba(112,43,230,.3);
-      transition: transform .2s ease;
+      z-index: 1;
+      min-height: 42px;
+      padding: 0 19px;
+      border: 1px solid rgba(242,236,223,.27);
+      border-radius: 12px;
+      color: #171713;
+      background: linear-gradient(180deg,#eee7d9,#c9c0b1);
+      box-shadow: 0 7px 20px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.65);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .55px;
+      transition: transform .2s, filter .2s;
     }
 
-    .primary-button:active { transform: scale(.96); }
+    .primary-button:hover { filter: brightness(1.06); }
+    .primary-button:active { transform: scale(.97); }
 
-    /* SECTIONS */
+    /* CATEGORIES AND PRODUCTS */
 
     .section-heading {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      margin: 32px 0 17px;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 33px 0 16px;
     }
 
     .section-heading h2 {
+      color: var(--cream);
       font-size: 17px;
+      font-weight: 750;
+      letter-spacing: -.35px;
     }
 
     .section-heading button {
       border: 0;
       background: none;
-      color: var(--accent);
+      color: var(--cream-soft);
       font-size: 11px;
     }
+
+    .section-heading button:hover { color: #fff; }
 
     .categories {
       display: grid;
       grid-template-columns: repeat(4,minmax(0,1fr));
-      gap: 10px;
+      gap: 11px;
     }
 
     .category {
       min-width: 0;
-      padding: 15px 5px;
-      border: 1px solid var(--border);
+      min-height: 94px;
+      padding: 15px 7px 13px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
       border-radius: 17px;
-      background: var(--glass);
+      background: linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.025));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.035);
       text-align: center;
+      transition: transform .2s,border-color .2s,background .2s;
+    }
+
+    .category:hover {
+      transform: translateY(-2px);
+      border-color: var(--line-strong);
+      background: rgba(255,255,255,.075);
     }
 
     .category-icon {
-      font-size: 24px;
       margin-bottom: 9px;
+      color: var(--cream-soft);
+      font-size: 23px;
+      line-height: 1;
     }
 
     .category p {
-      color: #D7CDDF;
+      color: var(--cream-soft);
       font-size: 10px;
       line-height: 1.4;
     }
 
     .empty-products {
-      padding: 30px 15px;
-      border: 1px dashed var(--border);
-      border-radius: 18px;
-      text-align: center;
+      padding: 31px 16px;
+      border: 1px dashed rgba(242,236,223,.16);
+      border-radius: 17px;
       color: var(--muted);
+      background: rgba(255,255,255,.018);
       font-size: 12px;
       line-height: 1.8;
+      text-align: center;
     }
 
-    /* BOTTOM NAVIGATION */
+    /* HORIZONTAL LIQUID GLASS NAVIGATION */
 
-   
-.bottom-nav {
-  background: rgba(18,18,18,0.72);
-
-  border: 1px solid rgba(255,255,255,0.16);
-
-  backdrop-filter: blur(35px) saturate(160%);
-  -webkit-backdrop-filter: blur(35px) saturate(160%);
-
-  box-shadow:
-    0 12px 45px rgba(0,0,0,0.55),
-    inset 0 1px 0 rgba(255,255,255,0.08);
-}
-
-.nav-item.active {
-  color: #FFFFFF;
-  background: rgba(255,255,255,0.10);
-}
+    .bottom-nav {
+      position: fixed;
+      z-index: 200;
+      left: 50%;
+      bottom: calc(12px + var(--safe-bottom));
+      transform: translateX(-50%);
+      width: min(490px, calc(100% - 28px));
+      min-height: 69px;
+      padding: 7px 9px;
+      display: grid;
+      grid-template-columns: repeat(5,minmax(0,1fr));
+      align-items: stretch;
+      gap: 4px;
+      border: 1px solid rgba(242,236,223,.17);
+      border-radius: 22px;
+      background: rgba(24,24,21,.76);
+      -webkit-backdrop-filter: blur(32px) saturate(145%);
+      backdrop-filter: blur(32px) saturate(145%);
+      box-shadow: 0 12px 42px rgba(0,0,0,.56), inset 0 1px 0 rgba(255,255,255,.09);
+    }
 
     .nav-item {
+      min-width: 0;
+      min-height: 53px;
+      padding: 5px 2px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 5px;
-      min-height: 49px;
+      gap: 4px;
       border: 0;
-      border-radius: 17px;
+      border-radius: 15px;
       background: transparent;
-      color: #A99BB9;
-      font-size: 10px;
-      transition: .25s ease;
+      color: #aaa397;
+      font-size: 9px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: color .2s,background .2s;
     }
 
-    .nav-item .nav-icon { font-size: 20px; }
+    .nav-item .nav-icon {
+      font-size: 19px;
+      line-height: 1;
+    }
 
     .nav-item.active {
-      color: #D7B6FF;
-      background: rgba(155,88,240,.19);
+      color: var(--cream);
+      background: rgba(242,236,223,.105);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
     }
 
-    /* SCREENS */
-
-    .screen { display: none; animation: screenIn .3s ease; }
-    .screen.active { display: block; }
-
-    @keyframes screenIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    /* OTHER SCREENS */
 
     .screen-message {
-      min-height: 45vh;
+      min-height: 43vh;
       display: grid;
       place-content: center;
-      text-align: center;
+      justify-items: center;
       gap: 12px;
+      text-align: center;
     }
 
-    .screen-message .big-icon { font-size: 42px; }
-    .screen-message p { color: var(--muted); font-size: 13px; }
-
-    /* RESPONSIVE */
-
-    @media (min-width: 700px) {
-      main { padding: 40px 45px; }
-      .topbar { padding-left: 45px; padding-right: 45px; }
-      .hero-card { min-height: 260px; padding: 35px; }
-      .hero-card h2 { font-size: 34px; }
-      .categories { grid-template-columns: repeat(4,120px); }
+    .screen-message .big-icon {
+      color: var(--cream-soft);
+      font-size: 42px;
     }
 
-    @media (min-width: 1050px) {
-      .app { padding-bottom: 35px; }
-      main { max-width: 1100px; margin: auto; }
-      .bottom-nav {
-        position: sticky;
-        bottom: 15px;
-        margin: 0 auto 15px;
+    .screen-message h2 {
+      color: var(--cream);
+      font-size: 22px;
+    }
+
+    .screen-message p {
+      max-width: 290px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* MOBILE RESPONSIVENESS */
+
+    @media (max-width: 520px) {
+      .topbar {
+        top: 7px;
+        min-height: 60px;
+        margin: 7px 9px 0;
+        padding: 8px 13px;
+        border-radius: 16px;
       }
+
+      .brand-icon {
+        width: 36px;
+        height: 36px;
+        flex-basis: 36px;
+        border-radius: 12px;
+      }
+
+      .brand-title { font-size: 12px; }
+
+      .icon-button {
+        width: 36px;
+        height: 36px;
+        flex-basis: 36px;
+      }
+
+      main {
+        width: calc(100% - 36px);
+        padding-top: 34px;
+      }
+
+      .hero-title { letter-spacing: -1.65px; }
+      .hero-description { font-size: 13px; }
+
+      .hero-card {
+        min-height: 205px;
+        padding: 23px 21px;
+        border-radius: 20px;
+      }
+
+      .categories { gap: 8px; }
+
+      .category {
+        min-height: 86px;
+        padding-inline: 3px;
+        border-radius: 14px;
+      }
+
+      .category p { font-size: 9px; }
+      .section-heading { margin-top: 29px; }
+
+      .bottom-nav {
+        width: calc(100% - 22px);
+        bottom: calc(8px + var(--safe-bottom));
+        min-height: 65px;
+        padding: 6px;
+        border-radius: 20px;
+      }
+
+      .nav-item {
+        min-height: 51px;
+        font-size: 8px;
+      }
+
+      .nav-item .nav-icon { font-size: 18px; }
+    }
+
+    @media (min-width: 760px) {
+      .topbar {
+        margin-inline: 18px;
+        padding-inline: 23px;
+      }
+
+      main {
+        width: min(100% - 80px, 1080px);
+        padding-top: 48px;
+      }
+
+      .hero-card {
+        min-height: 245px;
+        padding: 34px;
+      }
+
+      .categories {
+        grid-template-columns: repeat(4, minmax(105px,130px));
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .app { padding-bottom: 35px; }
+      .bottom-nav { position: fixed; }
+    }
+
+    @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+      .topbar,.bottom-nav { background: #171714; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+      *,*::before,*::after {
         animation-duration: .01ms !important;
         transition-duration: .01ms !important;
         scroll-behavior: auto !important;
-      }
-    }
-
-    @supports not (backdrop-filter: blur(1px)) {
-      .topbar, .bottom-nav {
-        background: #21172F;
       }
     }
   </style>
@@ -470,13 +615,13 @@ body {
 
 <body>
 
-  <!-- SPLASH -->
+  <!-- SPLASH SCREEN -->
 
-  <div class="splash" id="splash">
+  <div class="splash" id="splash" aria-label="Expression Phone loading">
     <div class="splash-content">
-      <div class="logo-mark">EP</div>
-      <div class="brand-name">EXPRESSION <span>PHONE</span></div>
-      <p class="slogan">EXPERIENCE MORE, CONNECT BETTER.</p>
+      <div class="splash-mark">EP</div>
+      <div class="splash-name">EXPRESSION <span>PHONE</span></div>
+      <p class="splash-slogan">EXPERIENCE MORE, CONNECT BETTER.</p>
     </div>
   </div>
 
@@ -486,19 +631,19 @@ body {
 
     <header class="topbar">
       <div class="brand">
-        <div class="brand-icon">EP</div>
+        <div class="brand-icon" aria-hidden="true">EP</div>
         <div>
           <div class="brand-title">EXPRESSION</div>
           <div class="brand-sub">PHONE</div>
         </div>
       </div>
 
-      <button class="icon-button" aria-label="Notifications">♧</button>
+      <button class="icon-button" type="button" aria-label="Notifications">♧</button>
     </header>
 
     <main>
 
-      <!-- HOME -->
+      <!-- HOME SCREEN -->
 
       <section class="screen active" id="home">
         <p class="welcome">WELCOME TO EXPRESSION PHONE</p>
@@ -509,12 +654,11 @@ body {
         </h1>
 
         <p class="hero-description">
-          Discover amazing devices and accessories
-          designed to keep you connected.
+          Discover amazing devices and accessories designed to keep you connected.
         </p>
 
-        <div class="search">
-          <span>⌕</span>
+        <div class="search" role="search">
+          <span class="search-icon" aria-hidden="true">⌕</span>
           <span>Search phones, brands and accessories...</span>
         </div>
 
@@ -522,38 +666,41 @@ body {
           <small>YOUR NEXT DEVICE AWAITS</small>
           <h2>Discover what's new.</h2>
           <p>Find technology that moves with you.</p>
-          <button class="primary-button" onclick="navigate('explore')">
-            EXPLORE PRODUCTS →
+          <button class="primary-button" type="button" onclick="navigate('explore')">
+            EXPLORE PRODUCTS&nbsp; →
           </button>
         </div>
 
         <div class="section-heading">
           <h2>Shop by category</h2>
-          <button onclick="navigate('explore')">See all</button>
+          <button type="button" onclick="navigate('explore')">See all</button>
         </div>
 
         <div class="categories">
           <div class="category">
-            <div class="category-icon">📱</div>
+            <div class="category-icon">▣</div>
             <p>Smartphones</p>
           </div>
+
           <div class="category">
-            <div class="category-icon">🎧</div>
+            <div class="category-icon">♬</div>
             <p>Accessories</p>
           </div>
+
           <div class="category">
-            <div class="category-icon">⌚</div>
+            <div class="category-icon">◷</div>
             <p>Smartwatches</p>
           </div>
+
           <div class="category">
-            <div class="category-icon">💻</div>
+            <div class="category-icon">▱</div>
             <p>Tablets</p>
           </div>
         </div>
 
         <div class="section-heading">
           <h2>Featured products</h2>
-          <button onclick="navigate('explore')">View all</button>
+          <button type="button" onclick="navigate('explore')">View all</button>
         </div>
 
         <div class="empty-products">
@@ -562,18 +709,19 @@ body {
         </div>
       </section>
 
-      <!-- EXPLORE -->
+      <!-- EXPLORE SCREEN -->
 
       <section class="screen" id="explore">
         <p class="welcome">DISCOVER SOMETHING NEW</p>
         <h1 class="hero-title">Explore <span>devices.</span></h1>
         <p class="hero-description">Find your next favourite technology.</p>
-        <div class="empty-products">
-          Our product catalogue will be connected in Phase 2.
+
+        <div class="empty-products" style="margin-top:24px">
+          Our product catalogue will be connected in the next development phase.
         </div>
       </section>
 
-      <!-- WISHLIST -->
+      <!-- WISHLIST SCREEN -->
 
       <section class="screen" id="wishlist">
         <div class="screen-message">
@@ -583,20 +731,21 @@ body {
         </div>
       </section>
 
-      <!-- CART -->
+      <!-- CART SCREEN -->
 
       <section class="screen" id="cart">
         <div class="screen-message">
-          <div class="big-icon">🛍</div>
+          <div class="big-icon">▢</div>
           <h2>Your shopping bag</h2>
           <p>Let's find something you'll love.</p>
-          <button class="primary-button" onclick="navigate('explore')">
+
+          <button class="primary-button" type="button" onclick="navigate('explore')">
             START EXPLORING
           </button>
         </div>
       </section>
 
-      <!-- ACCOUNT -->
+      <!-- ACCOUNT SCREEN -->
 
       <section class="screen" id="account">
         <div class="screen-message">
@@ -608,68 +757,94 @@ body {
 
     </main>
 
-    <!-- FLOATING NAVIGATION -->
+    <!-- BOTTOM NAVIGATION -->
 
     <nav class="bottom-nav" aria-label="Main navigation">
-      <button class="nav-item active" data-screen="home" onclick="navigate('home')">
+
+      <button class="nav-item active" type="button"
+        data-screen="home" aria-current="page"
+        onclick="navigate('home')">
         <span class="nav-icon">⌂</span>
         <span>Home</span>
       </button>
 
-      <button class="nav-item" data-screen="explore" onclick="navigate('explore')">
+      <button class="nav-item" type="button"
+        data-screen="explore"
+        onclick="navigate('explore')">
         <span class="nav-icon">⌕</span>
         <span>Explore</span>
       </button>
 
-      <button class="nav-item" data-screen="wishlist" onclick="navigate('wishlist')">
+      <button class="nav-item" type="button"
+        data-screen="wishlist"
+        onclick="navigate('wishlist')">
         <span class="nav-icon">♡</span>
         <span>Wishlist</span>
       </button>
 
-      <button class="nav-item" data-screen="cart" onclick="navigate('cart')">
+      <button class="nav-item" type="button"
+        data-screen="cart"
+        onclick="navigate('cart')">
         <span class="nav-icon">♧</span>
         <span>Cart</span>
       </button>
 
-      <button class="nav-item" data-screen="account" onclick="navigate('account')">
+      <button class="nav-item" type="button"
+        data-screen="account"
+        onclick="navigate('account')">
         <span class="nav-icon">◉</span>
         <span>Account</span>
       </button>
+
     </nav>
 
   </div>
 
   <script>
-    // APP NAVIGATION
+
+    // APPLICATION NAVIGATION
 
     function navigate(screen) {
-      document.querySelectorAll('.screen').forEach(element => {
-        element.classList.remove('active');
-      });
-
-      document.querySelectorAll('.nav-item').forEach(element => {
-        element.classList.toggle(
-          'active',
-          element.dataset.screen === screen
-        );
-      });
-
       const target = document.getElementById(screen);
 
-      if (target) {
-        target.classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+      if (!target) return;
+
+      document.querySelectorAll('.screen').forEach(section => {
+        section.classList.remove('active');
+      });
+
+      document.querySelectorAll('.nav-item').forEach(button => {
+        const selected = button.dataset.screen === screen;
+
+        button.classList.toggle('active', selected);
+
+        if (selected) {
+          button.setAttribute('aria-current', 'page');
+        } else {
+          button.removeAttribute('aria-current');
+        }
+      });
+
+      target.classList.add('active');
+
+      window.scrollTo({
+        top: 0,
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+          ? 'auto'
+          : 'smooth'
+      });
     }
 
     // SPLASH SCREEN
 
     window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('splash').classList.add('hide');
-      }, 1300);
+      window.setTimeout(() => {
+        document.getElementById('splash')?.classList.add('hide');
+      }, 1100);
     });
+
   </script>
 
 </body>
 </html>
+
