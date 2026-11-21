@@ -16,21 +16,39 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      color-scheme: dark;
-      --bg: #10091C;
-      --surface: #191125;
-      --purple: #702BE6;
-      --accent: #B77AFF;
-      --silver: #C7C9D1;
-      --text: #F8F5FC;
-      --muted: #A69BB5;
-      --glass: rgba(255,255,255,.075);
-      --border: rgba(255,255,255,.11);
-      --radius: 22px;
-      --safe-top: env(safe-area-inset-top, 0px);
-      --safe-bottom: env(safe-area-inset-bottom, 0px);
-    }
+   
+:root {
+  color-scheme: dark;
+
+  --bg: #050505;
+  --surface: #101010;
+  --purple: #777777;
+  --accent: #D1D1D1;
+  --silver: #C5C5C5;
+
+  --text: #FFFFFF;
+  --muted: #A0A0A0;
+
+  --glass: rgba(255,255,255,0.055);
+  --border: rgba(255,255,255,0.12);
+
+  --radius: 20px;
+
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+body {
+  background:
+    radial-gradient(
+      ellipse at 50% -20%,
+      rgba(255,255,255,0.055),
+      transparent 55%
+    ),
+    #050505;
+  color: var(--text);
+}
+
 
     * {
       box-sizing: border-box;
@@ -121,19 +139,32 @@
 
     /* HEADER */
 
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      padding: calc(17px + var(--safe-top)) 20px 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(16,9,28,.72);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(24px) saturate(160%);
-      -webkit-backdrop-filter: blur(24px) saturate(160%);
-    }
+    
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  margin: 10px 14px 0;
+  padding: calc(15px + var(--safe-top)) 22px 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(15,15,15,0.58);
+
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 18px;
+
+  backdrop-filter: blur(35px) saturate(150%);
+  -webkit-backdrop-filter: blur(35px) saturate(150%);
+
+  box-shadow:
+    0 8px 35px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.07);
+}
+
 
     .brand {
       display: flex;
@@ -339,23 +370,24 @@
 
     /* BOTTOM NAVIGATION */
 
-    .bottom-nav {
-      position: fixed;
-      z-index: 100;
-      left: 50%;
-      bottom: calc(13px + var(--safe-bottom));
-      transform: translateX(-50%);
-      width: min(calc(100% - 28px), 490px);
-      padding: 10px 8px;
-      display: grid;
-      grid-template-columns: repeat(5,1fr);
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: 25px;
-      background: rgba(35,24,49,.78);
-      box-shadow: 0 12px 45px rgba(0,0,0,.4);
-      backdrop-filter: blur(30px) saturate(180%);
-      -webkit-backdrop-filter: blur(30px) saturate(180%);
-    }
+   
+.bottom-nav {
+  background: rgba(18,18,18,0.72);
+
+  border: 1px solid rgba(255,255,255,0.16);
+
+  backdrop-filter: blur(35px) saturate(160%);
+  -webkit-backdrop-filter: blur(35px) saturate(160%);
+
+  box-shadow:
+    0 12px 45px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.nav-item.active {
+  color: #FFFFFF;
+  background: rgba(255,255,255,0.10);
+}
 
     .nav-item {
       display: flex;
