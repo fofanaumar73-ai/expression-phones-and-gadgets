@@ -950,6 +950,19 @@
     font-size: 15px;
   }
 }
+
+    .service-card {
+  cursor: pointer;
+}
+
+.service-card:active {
+  transform: scale(.98);
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+}
   </style>
 </head>
 
@@ -1087,7 +1100,7 @@
 
   <div class="services-grid">
 
-    <div class="service-card">
+   <div class="service-card" onclick="navigate('explore')">
       <div class="service-icon">↗</div>
       <p class="service-number">01 / PURCHASE</p>
       <h3>Buy a Phone</h3>
@@ -1095,7 +1108,7 @@
       <span class="service-link">Explore devices <span>→</span></span>
     </div>
 
-    <div class="service-card">
+   <div class="service-card" onclick="contactWhatsApp('sell')">
       <div class="service-icon">↙</div>
       <p class="service-number">02 / SELL</p>
       <h3>Sell Your Phone</h3>
@@ -1103,7 +1116,7 @@
       <span class="service-link">Sell with us <span>→</span></span>
     </div>
 
-    <div class="service-card">
+   <div class="service-card" onclick="contactWhatsApp('swap')">
       <div class="service-icon">⇄</div>
       <p class="service-number">03 / EXCHANGE</p>
       <h3>Swap Your Phone</h3>
@@ -1111,7 +1124,7 @@
       <span class="service-link">Discover swaps <span>→</span></span>
     </div>
 
-    <div class="service-card">
+    <div class="service-card" onclick="contactWhatsApp('repair')">
       <div class="service-icon">⌁</div>
       <p class="service-number">04 / REPAIR</p>
       <h3>Phone Repairs</h3>
