@@ -963,6 +963,83 @@
   display: inline-flex;
   align-items: center;
 }
+
+    /* CUSTOMER TESTIMONIALS */
+
+.testimonials-section {
+  margin: 50px 0;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 13px;
+  margin-top: 22px;
+}
+
+.testimonial-card {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,.065),
+    rgba(255,255,255,.015)
+  );
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+.testimonial-stars {
+  color: #d6c4a0;
+  font-size: 13px;
+  letter-spacing: 3px;
+  margin-bottom: 17px;
+}
+
+.testimonial-quote {
+  color: var(--cream-soft);
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0 0 22px;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
+.testimonial-avatar {
+  width: 37px;
+  height: 37px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.09);
+  border: 1px solid var(--line-strong);
+  color: var(--cream);
+  font-size: 13px;
+}
+
+.testimonial-author h4 {
+  color: var(--cream);
+  font-size: 12px;
+  margin: 0 0 4px;
+}
+
+.testimonial-author span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+@media (min-width: 760px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
   </style>
 </head>
 
@@ -1087,6 +1164,71 @@
 
 <div class="product-grid" id="justLandedProducts"></div>
       </section>
+
+      <!-- CUSTOMER TESTIMONIALS -->
+<section class="testimonials-section">
+
+  <div class="section-heading">
+    <div>
+      <p class="welcome">CUSTOMER EXPERIENCES</p>
+      <h2 class="section-title">
+        Words from our <span>customers.</span>
+      </h2>
+      <p class="hero-description">
+        Every connection comes with an experience worth sharing.
+      </p>
+    </div>
+  </div>
+
+  <div class="testimonials-grid">
+
+    <article class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-quote">
+        "A smooth experience from start to finish. The service was
+        professional and everything was handled with care."
+      </p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">C</div>
+        <div>
+          <h4>Customer</h4>
+          <span>Verified customer</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-quote">
+        "I had a great experience. The process was straightforward
+        and the communication was excellent."
+      </p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">C</div>
+        <div>
+          <h4>Customer</h4>
+          <span>Verified customer</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-quote">
+        "A reliable place to explore phones and accessories.
+        I appreciate the attention given to customers."
+      </p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">C</div>
+        <div>
+          <h4>Customer</h4>
+          <span>Verified customer</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
 
 
       <!-- EXPRESSION PHONE SERVICES -->
