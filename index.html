@@ -850,6 +850,106 @@
         scroll-behavior: auto !important;
       }
     }
+
+    /* EXPRESSION PHONE SERVICES */
+
+.services-section {
+  margin: 46px 0;
+}
+
+.section-title {
+  font-size: clamp(25px, 5vw, 34px);
+  font-weight: 650;
+  letter-spacing: -1.4px;
+  margin: 8px 0 22px;
+  color: var(--cream);
+}
+
+.section-title span {
+  color: var(--silver);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 225px;
+  padding: 19px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,.075),
+    rgba(255,255,255,.018)
+  );
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  transition: transform .3s ease, border-color .3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-strong);
+}
+
+.service-icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  color: var(--cream);
+  font-size: 21px;
+  margin-bottom: 20px;
+}
+
+.service-number {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  margin-bottom: 9px;
+}
+
+.service-card h3 {
+  color: var(--cream);
+  font-size: 17px;
+  margin: 0 0 9px;
+  letter-spacing: -.4px;
+}
+
+.service-card > p:not(.service-number) {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 0 0 18px;
+}
+
+.service-link {
+  color: var(--cream-soft);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.service-link span {
+  margin-left: 5px;
+}
+
+@media (max-width: 380px) {
+  .service-card {
+    padding: 14px;
+    min-height: 235px;
+  }
+
+  .service-card h3 {
+    font-size: 15px;
+  }
+}
   </style>
 </head>
 
