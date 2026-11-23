@@ -1524,6 +1524,52 @@ function navigate(screen) {
   });
 }
 
+    // EXPRESSION PHONE WHATSAPP SERVICES
+
+const EXPRESSION_WHATSAPP_NUMBER = "";
+
+const whatsappMessages = {
+  sell: `Hello Expression Phone! I'm interested in selling my phone.
+
+Device brand/model:
+Storage:
+Condition:
+
+Please, I'd like to know how much you can offer for my device.`,
+
+  swap: `Hello Expression Phone! I'd like to swap my current phone for another device.
+
+Current phone:
+Condition:
+Preferred phone:
+
+Please let me know the available swap options and whether I need to add money.`,
+
+  repair: `Hello Expression Phone! I need assistance with a phone repair.
+
+Device brand/model:
+Problem:
+Has the phone been repaired before?
+
+Please let me know how I can proceed.`
+};
+
+function contactWhatsApp(service) {
+  const message = whatsappMessages[service];
+
+  if (!message) return;
+
+  if (!EXPRESSION_WHATSAPP_NUMBER) {
+    alert("Expression Phone WhatsApp contact will be available soon.");
+    return;
+  }
+
+  const whatsappURL =
+    `https://wa.me/${EXPRESSION_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+  window.open(whatsappURL, "_blank", "noopener,noreferrer");
+}
+
 // INITIALISE PRODUCTS
 
 renderProducts();
