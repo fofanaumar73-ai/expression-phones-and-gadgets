@@ -1070,7 +1070,6 @@
   <script>
 
    
-// EXPRESSION PHONE PRODUCT DATA
 
 const products = [
   {
@@ -1078,7 +1077,8 @@ const products = [
     name: "iPhone 17 Pro Max",
     category: "Smartphones",
     price: 2500000,
-    tag: "BESTSELLER",
+    tag: "JUST LANDED",
+    justLanded: true,
     image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=800&q=85"
   },
   {
@@ -1086,7 +1086,8 @@ const products = [
     name: "Samsung Galaxy S26 Ultra",
     category: "Smartphones",
     price: 2200000,
-    tag: "NEW ARRIVAL",
+    tag: "JUST LANDED",
+    justLanded: true,
     image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=800&q=85"
   },
   {
@@ -1094,7 +1095,8 @@ const products = [
     name: "AirPods Pro",
     category: "Accessories",
     price: 450000,
-    tag: "POPULAR",
+    tag: "JUST LANDED",
+    justLanded: true,
     image: "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=800&q=85"
   },
   {
@@ -1103,6 +1105,7 @@ const products = [
     category: "Smartwatches",
     price: 1100000,
     tag: "PREMIUM",
+    justLanded: false,
     image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=85"
   },
   {
@@ -1111,6 +1114,7 @@ const products = [
     category: "Tablets",
     price: 950000,
     tag: "FEATURED",
+    justLanded: false,
     image: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=800&q=85"
   },
   {
@@ -1119,9 +1123,11 @@ const products = [
     category: "Accessories",
     price: 180000,
     tag: "POPULAR",
+    justLanded: false,
     image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=85"
   }
 ];
+
 
 let activeFilter = "All";
 let cart = [];
