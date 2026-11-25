@@ -964,21 +964,37 @@
   align-items: center;
 }
 
-    /* CUSTOMER TESTIMONIALS */
+   /* CUSTOMER TESTIMONIALS SLIDER */
 
 .testimonials-section {
   margin: 50px 0;
 }
 
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 13px;
+.testimonial-slider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin-top: 22px;
 }
 
+.testimonial-viewport {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.testimonial-track {
+  display: flex;
+  transition: transform .45s cubic-bezier(.22,.61,.36,1);
+  will-change: transform;
+}
+
 .testimonial-card {
-  padding: 22px;
+  flex: 0 0 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 25px 22px;
   border: 1px solid var(--line);
   border-radius: 20px;
   background: linear-gradient(
@@ -1035,9 +1051,55 @@
   font-size: 10px;
 }
 
-@media (min-width: 760px) {
-  .testimonials-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+.testimonial-arrow {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: var(--glass);
+  color: var(--cream);
+  font-size: 19px;
+  cursor: pointer;
+  transition: background .25s ease, transform .25s ease;
+}
+
+.testimonial-arrow:hover {
+  background: rgba(255,255,255,.13);
+}
+
+.testimonial-arrow:active {
+  transform: scale(.92);
+}
+
+.testimonial-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 17px;
+}
+
+.testimonial-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 20px;
+  background: rgba(242,236,223,.25);
+  transition: all .3s ease;
+}
+
+.testimonial-dot.active {
+  width: 20px;
+  background: var(--cream);
+}
+
+@media (max-width: 380px) {
+  .testimonial-slider {
+    gap: 7px;
+  }
+
+  .testimonial-arrow {
+    width: 32px;
+    height: 32px;
   }
 }
   </style>
@@ -1748,6 +1810,32 @@ window.addEventListener("load", () => {
     document.getElementById("splash")?.classList.add("hide");
   }, 1100);
 });
+
+    // TESTIMONIAL SLIDER
+
+let currentTestimonial = 0;
+
+function changeTestimonial(direction) {
+  const track = document.getElementById("testimonialTrack");
+  const pagination = document.getElementById("testimonialPagination");
+
+  if (!track || !pagination) return;
+
+  const slides = track.querySelectorAll(".testimonial-card");
+  const dots = pagination.querySelectorAll(".testimonial-dot");
+
+  if (!slides.length) return;
+
+  currentTestimonial =
+    (currentTestimonial + direction + slides.length) % slides.length;
+
+  track.style.transform =
+    `translateX(-${currentTestimonial * 100}%)`;
+
+  dots.forEach((dot, index) => {
+    dot.classList.toggle("active", index === currentTestimonial);
+  });
+}
 
 
   </script>
