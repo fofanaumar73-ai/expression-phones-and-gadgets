@@ -1247,6 +1247,152 @@
     margin-inline: auto;
   }
 }
+
+    /* EXPRESSION PHONE PRODUCT SHOWCASE */
+
+.hero-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  min-height: auto;
+  margin-top: 25px;
+  padding: 25px;
+  border: 1px solid rgba(230,222,207,.17);
+  border-radius: 24px;
+  background:
+    radial-gradient(ellipse at 85% 15%, rgba(211,199,176,.12), transparent 45%),
+    linear-gradient(145deg, #191916, #0b0b09);
+  box-shadow: var(--shadow);
+}
+
+.hero-card small {
+  display: block;
+  color: #c9c1b3;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.hero-card h2 {
+  margin: 14px 0 8px;
+  color: var(--cream);
+  font-size: clamp(23px, 4vw, 32px);
+  letter-spacing: -.8px;
+}
+
+.hero-card p {
+  margin-bottom: 20px;
+  color: #b9b2a6;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* PORTRAIT PRODUCT IMAGE */
+
+.hero-artwork {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  margin: 22px 0;
+  border: 1px solid rgba(242,236,223,.15);
+  border-radius: 20px;
+  background: #11100e;
+  box-shadow: 0 18px 40px rgba(0,0,0,.4);
+}
+
+.hero-artwork img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .6s ease;
+}
+
+.hero-artwork:hover img {
+  transform: scale(1.035);
+}
+
+/* IMAGE OVERLAY */
+
+.hero-artwork::after {
+  content: "";
+  position: absolute;
+  inset: 55% 0 0;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(8,8,7,.72)
+  );
+  pointer-events: none;
+}
+
+/* IMAGE CAPTION */
+
+.hero-artwork-caption {
+  position: absolute;
+  z-index: 2;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+}
+
+.hero-artwork-caption span {
+  color: #d7c6a9;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
+
+.hero-artwork-caption h2 {
+  margin: 8px 0 0;
+  color: var(--cream);
+  font-size: 23px;
+}
+
+/* EXPLORE BUTTON */
+
+.hero-card .primary-button {
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 21px;
+  border: 1px solid rgba(242,236,223,.27);
+  border-radius: 13px;
+  color: #171713;
+  background: linear-gradient(180deg,#eee7d9,#c9c0b1);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .55px;
+  cursor: pointer;
+  transition: transform .2s ease, filter .2s ease;
+}
+
+.hero-card .primary-button:hover {
+  filter: brightness(1.08);
+}
+
+.hero-card .primary-button:active {
+  transform: scale(.97);
+}
+
+/* LARGER SCREENS */
+
+@media (min-width: 760px) {
+  .hero-card {
+    padding: 32px;
+  }
+
+  .hero-artwork {
+    max-width: 620px;
+    aspect-ratio: 5 / 4;
+    margin-inline: auto;
+  }
+}
   </style>
 </head>
 
