@@ -1102,6 +1102,151 @@
     height: 32px;
   }
 }
+
+    /* EXPRESSION PHONE HERO ARTWORK */
+
+.hero-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: auto;
+  margin-top: 25px;
+  padding: 25px;
+  border: 1px solid rgba(230,222,207,.17);
+  border-radius: 23px;
+  background:
+    radial-gradient(
+      ellipse at 82% 20%,
+      rgba(211,199,176,.10),
+      transparent 40%
+    ),
+    linear-gradient(145deg, #191916, #0d0d0b);
+  box-shadow: var(--shadow);
+}
+
+.hero-card small {
+  display: block;
+  color: #c9c1b3;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.hero-card h2 {
+  max-width: 320px;
+  margin: 14px 0 8px;
+  color: var(--cream);
+  font-size: clamp(23px, 4vw, 32px);
+  letter-spacing: -.8px;
+}
+
+.hero-card p {
+  margin-bottom: 20px;
+  color: #b9b2a6;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* PRODUCT IMAGE */
+
+.hero-artwork {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  margin: 22px 0;
+  border: 1px solid rgba(242,236,223,.14);
+  border-radius: 19px;
+  background: #11100e;
+  box-shadow: 0 15px 35px rgba(0,0,0,.35);
+}
+
+.hero-artwork img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-artwork::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 0;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(8,8,7,.65)
+  );
+  pointer-events: none;
+}
+
+.hero-artwork-caption {
+  position: absolute;
+  z-index: 2;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+}
+
+.hero-artwork-caption span {
+  color: #d7c6a9;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
+
+.hero-artwork-caption h2 {
+  margin: 8px 0 0;
+  color: var(--cream);
+  font-size: 23px;
+}
+
+/* EXPLORE BUTTON */
+
+.primary-button {
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 21px;
+  border: 1px solid rgba(242,236,223,.27);
+  border-radius: 13px;
+  color: #171713;
+  background: linear-gradient(180deg,#eee7d9,#c9c0b1);
+  box-shadow:
+    0 7px 20px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.65);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .55px;
+  cursor: pointer;
+  transition: transform .2s, filter .2s;
+}
+
+.primary-button:hover {
+  filter: brightness(1.08);
+}
+
+.primary-button:active {
+  transform: scale(.97);
+}
+
+/* TABLET AND DESKTOP */
+
+@media (min-width: 760px) {
+  .hero-card {
+    padding: 32px;
+  }
+
+  .hero-artwork {
+    max-width: 620px;
+    aspect-ratio: 5 / 4;
+    margin-inline: auto;
+  }
+}
   </style>
 </head>
 
@@ -1154,19 +1299,28 @@
           <span>Search phones, brands and accessories...</span>
         </div>
 
-        <div class="hero-card">
-          <small>YOUR NEXT DEVICE AWAITS</small>
-          <h2>Discover what's new.</h2>
-          <p>Find technology that moves with you.</p>
-          <button class="primary-button" type="button" onclick="navigate('explore')">
-            EXPLORE PRODUCTS&nbsp; →
-          </button>
-        </div>
+      <div class="hero-card">
+  <small>YOUR NEXT DEVICE AWAITS</small>
+  <h2>Discover what's new.</h2>
+  <p>Find technology that moves with you.</p>
 
-        <div class="section-heading">
-          <h2>Shop by category</h2>
-          <button type="button" onclick="navigate('explore')">See all</button>
-        </div>
+  <div class="hero-artwork">
+    <img
+      src="https://files.oaiusercontent.com/file_000000003dd081f49b088604b2cd8827"
+      alt="Expression Phone collection of smartphones and accessories"
+      fetchpriority="high"
+    >
+  </div>
+
+  <button class="primary-button" type="button" onclick="navigate('explore')">
+    EXPLORE PRODUCTS&nbsp; →
+  </button>
+</div>
+
+<div class="section-heading">
+  <h2>Shop by category</h2>
+  <button type="button" onclick="navigate('explore')">See all</button>
+</div>
 
         
 <div class="categories">
