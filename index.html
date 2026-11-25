@@ -1165,8 +1165,8 @@
 <div class="product-grid" id="justLandedProducts"></div>
       </section>
 
-      <!-- CUSTOMER TESTIMONIALS -->
-<section class="testimonials-section">
+     <!-- CUSTOMER TESTIMONIALS -->
+<section class="testimonials-section" id="homeTestimonials">
 
   <div class="section-heading">
     <div>
@@ -1180,54 +1180,79 @@
     </div>
   </div>
 
-  <div class="testimonials-grid">
+  <div class="testimonial-slider">
 
-    <article class="testimonial-card">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-quote">
-        "A smooth experience from start to finish. The service was
-        professional and everything was handled with care."
-      </p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">C</div>
-        <div>
-          <h4>Customer</h4>
-          <span>Verified customer</span>
-        </div>
-      </div>
-    </article>
+    <button class="testimonial-arrow"
+      onclick="changeTestimonial(-1)"
+      aria-label="Previous testimonial">
+      &#8592;
+    </button>
 
-    <article class="testimonial-card">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-quote">
-        "I had a great experience. The process was straightforward
-        and the communication was excellent."
-      </p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">C</div>
-        <div>
-          <h4>Customer</h4>
-          <span>Verified customer</span>
-        </div>
-      </div>
-    </article>
+    <div class="testimonial-viewport">
+      <div class="testimonial-track" id="testimonialTrack">
 
-    <article class="testimonial-card">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-quote">
-        "A reliable place to explore phones and accessories.
-        I appreciate the attention given to customers."
-      </p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">C</div>
-        <div>
-          <h4>Customer</h4>
-          <span>Verified customer</span>
-        </div>
+        <article class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">
+            "A smooth experience from start to finish. The service was
+            professional and everything was handled with care."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">C</div>
+            <div>
+              <h4>Customer</h4>
+              <span>Customer feedback</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">
+            "I had a great experience. The process was straightforward
+            and the communication was excellent."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">C</div>
+            <div>
+              <h4>Customer</h4>
+              <span>Customer feedback</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">
+            "A reliable place to explore phones and accessories.
+            I appreciate the attention given to customers."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">C</div>
+            <div>
+              <h4>Customer</h4>
+              <span>Customer feedback</span>
+            </div>
+          </div>
+        </article>
+
       </div>
-    </article>
+    </div>
+
+    <button class="testimonial-arrow"
+      onclick="changeTestimonial(1)"
+      aria-label="Next testimonial">
+      &#8594;
+    </button>
 
   </div>
+
+  <div class="testimonial-pagination" id="testimonialPagination">
+    <span class="testimonial-dot active"></span>
+    <span class="testimonial-dot"></span>
+    <span class="testimonial-dot"></span>
+  </div>
+
 </section>
 
 
