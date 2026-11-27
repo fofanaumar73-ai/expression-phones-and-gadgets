@@ -1393,6 +1393,171 @@
     margin-inline: auto;
   }
 }
+
+    
+/* EXPRESSION PHONE FAQ CAROUSEL */
+
+.faq-section {
+  margin: 55px 0 35px;
+}
+
+.faq-heading {
+  margin-bottom: 22px;
+}
+
+.faq-intro {
+  max-width: 400px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.faq-card {
+  overflow: hidden;
+  padding: 23px;
+  border: 1px solid var(--line-strong);
+  border-radius: 23px;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(220,210,190,.09), transparent 48%),
+    linear-gradient(145deg, rgba(255,255,255,.065), rgba(255,255,255,.012)),
+    #11110f;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+.faq-topline,
+.faq-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 1.1px;
+}
+
+.faq-content {
+  min-height: 190px;
+  padding: 35px 0 25px;
+  animation: faqReveal .35s ease both;
+}
+
+@keyframes faqReveal {
+  from {
+    opacity: 0;
+    transform: translateY(9px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq-question-number {
+  margin-bottom: 13px;
+  color: var(--silver);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+}
+
+.faq-content h3 {
+  max-width: 520px;
+  margin-bottom: 13px;
+  color: var(--cream);
+  font-size: clamp(19px, 4vw, 25px);
+  line-height: 1.4;
+  letter-spacing: -.6px;
+}
+
+.faq-content > p:last-child {
+  max-width: 520px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.faq-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 17px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-arrow {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--cream);
+  background: rgba(255,255,255,.055);
+  font-size: 20px;
+  transition: background .2s, transform .2s;
+}
+
+.faq-arrow:hover {
+  background: rgba(255,255,255,.13);
+}
+
+.faq-arrow:active {
+  transform: scale(.92);
+}
+
+.faq-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.faq-progress-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 20px;
+  background: rgba(242,236,223,.23);
+  transition: all .3s ease;
+}
+
+.faq-progress-dot.active {
+  width: 17px;
+  background: var(--cream);
+}
+
+.faq-bottom {
+  padding-top: 17px;
+  font-size: 8px;
+  letter-spacing: .8px;
+}
+
+@media (max-width: 380px) {
+  .faq-card {
+    padding: 18px;
+  }
+
+  .faq-content {
+    min-height: 205px;
+  }
+
+  .faq-progress {
+    gap: 4px;
+  }
+
+  .faq-progress-dot {
+    width: 4px;
+  }
+
+  .faq-progress-dot.active {
+    width: 13px;
+  }
+}
+
   </style>
 </head>
 
@@ -1523,6 +1688,67 @@
     View all
   </button>
 </div>
+
+        
+<!-- EXPRESSION PHONE FAQ -->
+<section class="faq-section" id="homeFAQ">
+
+  <div class="faq-heading">
+    <p class="welcome">NEED A LITTLE CLARITY?</p>
+    <h2 class="section-title">Frequently asked <span>questions.</span></h2>
+    <p class="faq-intro">
+      Everything you need to know before choosing Expression Phone.
+    </p>
+  </div>
+
+  <div class="faq-card">
+
+    <div class="faq-topline">
+      <span>EXPRESSION PHONE SUPPORT</span>
+      <span id="faqCounter">01 / 10</span>
+    </div>
+
+    <div class="faq-content" id="faqContent">
+      <p class="faq-question-number">QUESTION 01</p>
+      <h3 id="faqQuestion">Where is Expression Phone located?</h3>
+      <p id="faqAnswer">
+        Expression Phone serves customers in Nigeria, with nationwide delivery available.
+      </p>
+    </div>
+
+    <div class="faq-controls">
+      <button type="button" class="faq-arrow"
+        onclick="changeFAQ(-1)" aria-label="Previous question">
+        &#8592;
+      </button>
+
+      <div class="faq-progress" id="faqProgress">
+        <span class="faq-progress-dot active"></span>
+        <span class="faq-progress-dot"></span>
+        <span class="faq-progress-dot"></span>
+        <span class="faq-progress-dot"></span>
+        <span class="faq-progress-dot"></span>
+        <span class="faq-progress-dot"></span>
+        <span class="faq-progress-dot"></span>
+        <span class="faq-progress-dot"></span>
+        <span class="faq-progress-dot"></span>
+        <span class="faq-progress-dot"></span>
+      </div>
+
+      <button type="button" class="faq-arrow"
+        onclick="changeFAQ(1)" aria-label="Next question">
+        &#8594;
+      </button>
+    </div>
+
+    <div class="faq-bottom">
+      <span>HAVE MORE QUESTIONS?</span>
+      <span>We're here to help.</span>
+    </div>
+
+  </div>
+</section>
+
 
 <div class="product-grid" id="justLandedProducts"></div>
 
@@ -2136,6 +2362,95 @@ function changeTestimonial(direction) {
     dot.classList.toggle("active", index === currentTestimonial);
   });
 }
+
+    
+// EXPRESSION PHONE FAQ CAROUSEL
+
+const expressionFAQs = [
+  {
+    question: "Where is Expression Phone located?",
+    answer: "Expression Phone serves customers in Nigeria. You can contact our team through WhatsApp for enquiries, orders and assistance."
+  },
+  {
+    question: "Do you deliver nationwide?",
+    answer: "Yes! We offer nationwide delivery across Nigeria. You can order smartphones, accessories, tablets, smartwatches and gaming products from anywhere in the country."
+  },
+  {
+    question: "Can I pick up my order?",
+    answer: "Yes. Physical pickup is available as an alternative to home delivery. Contact our team to confirm pickup arrangements."
+  },
+  {
+    question: "What products do you sell?",
+    answer: "We offer smartphones, phone accessories, smartwatches, tablets and gaming products, including PlayStation and Nintendo products."
+  },
+  {
+    question: "Can I sell my old phone?",
+    answer: "Absolutely! We accept enquiries from customers interested in selling their phones. Send us your phone model, storage capacity and condition through WhatsApp."
+  },
+  {
+    question: "Can I swap my current phone?",
+    answer: "Yes! You can enquire about exchanging your current phone for another device. Share your current phone and preferred upgrade with our team."
+  },
+  {
+    question: "Do you offer phone repairs?",
+    answer: "Yes. We offer phone repair enquiries and servicing assistance. Contact us with your device model and the issue you're experiencing."
+  },
+  {
+    question: "How can I place an order?",
+    answer: "Explore our catalogue, select the products you're interested in and contact our team to confirm availability, pricing and delivery arrangements."
+  },
+  {
+    question: "How can I confirm product availability?",
+    answer: "Product availability can change. Contact Expression Phone through WhatsApp to confirm that your preferred product is available before arranging your order."
+  },
+  {
+    question: "How can I contact Expression Phone?",
+    answer: "You can reach our team through the WhatsApp contact option on our website. We're happy to help with product enquiries, orders and services."
+  }
+];
+
+let currentFAQ = 0;
+
+function renderFAQ() {
+  const question = document.getElementById("faqQuestion");
+  const answer = document.getElementById("faqAnswer");
+  const counter = document.getElementById("faqCounter");
+  const progress = document.getElementById("faqProgress");
+  const content = document.getElementById("faqContent");
+
+  if (!question || !answer || !counter || !progress || !content) return;
+
+  const faq = expressionFAQs[currentFAQ];
+
+  // Restart the entrance animation
+  content.style.animation = "none";
+  void content.offsetWidth;
+  content.style.animation = "";
+
+  question.textContent = faq.question;
+  answer.textContent = faq.answer;
+
+  counter.textContent =
+    String(currentFAQ + 1).padStart(2, "0") + " / 10";
+
+  const dots = progress.querySelectorAll(".faq-progress-dot");
+
+  dots.forEach((dot, index) => {
+    dot.classList.toggle("active", index === currentFAQ);
+  });
+}
+
+function changeFAQ(direction) {
+  currentFAQ =
+    (currentFAQ + direction + expressionFAQs.length) %
+    expressionFAQs.length;
+
+  renderFAQ();
+}
+
+// INITIALISE FAQ
+renderFAQ();
+
 
 
   </script>
