@@ -1558,6 +1558,71 @@
   }
 }
 
+    /* HOME SHOPPING BENEFITS */
+
+.shopping-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 22px 0 34px;
+}
+
+.benefit-item {
+  min-width: 0;
+  padding: 17px 12px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,.065),
+    rgba(255,255,255,.015)
+  );
+}
+
+.benefit-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 13px;
+  border: 1px solid var(--line-strong);
+  border-radius: 11px;
+  color: var(--cream);
+  background: rgba(255,255,255,.055);
+  font-size: 17px;
+}
+
+.benefit-item h3 {
+  color: var(--cream);
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+
+.benefit-item p {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+@media (max-width: 520px) {
+  .shopping-benefits {
+    gap: 7px;
+  }
+
+  .benefit-item {
+    padding: 13px 9px;
+    border-radius: 14px;
+  }
+
+  .benefit-item h3 {
+    font-size: 10px;
+  }
+
+  .benefit-item p {
+    font-size: 9px;
+  }
+}
+
   </style>
 </head>
 
@@ -1621,6 +1686,28 @@
   <button class="primary-button" type="button" onclick="navigate('explore')">
     EXPLORE PRODUCTS&nbsp; →
   </button>
+</div>
+
+        <div class="shopping-benefits">
+
+  <div class="benefit-item">
+    <div class="benefit-icon">↗</div>
+    <h3>Nationwide Delivery</h3>
+    <p>Delivery across Nigeria.</p>
+  </div>
+
+  <div class="benefit-item">
+    <div class="benefit-icon">⌖</div>
+    <h3>Easy Pickup</h3>
+    <p>Physical pickup available.</p>
+  </div>
+
+  <div class="benefit-item">
+    <div class="benefit-icon">◉</div>
+    <h3>WhatsApp Support</h3>
+    <p>We're here to assist.</p>
+  </div>
+
 </div>
 
 <div class="section-heading">
